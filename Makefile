@@ -29,3 +29,6 @@ main: main.o
 	ld main.o -o asmttpd
 clean:
 	rm -rf main.o asmttpd
+
+publish:
+	docker buildx build --provenance=true --sbom=true --platform=linux/amd64 -t rvanderfeer/asmttpd:latest --push .
